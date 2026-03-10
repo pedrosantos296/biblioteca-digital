@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='card'>
+    <h2>{{ book.title }}</h2>
+    <p><strong>Autor:</strong> {{ book.author }} |
+        <strong>ISBN:</strong> {{ book.isbn }} |
+        <strong>Ano:</strong> {{ book.year }}</p>
+    <p>{{ book.synopsis }}</p>
+</div>
+<h3>Avaliações dos Leitores</h3>
+{% for r in reviews %}
+<div class='card'>
+    <strong>{{ r.reviewer }}</strong>
+    <span class='star'>{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</span>
+    <p>{{ r.comment }}</p>
+</div>
+{% else %}<p>Ainda sem avaliações.</p>{% endfor %}
+<h3>Deixar Avaliação</h3>
+<div class='card'>
+    <form method='POST' action='/book/{{ book.id }}/review'>
+        <input name='reviewer' placeholder='O teu nome' required>
+        <select name='rating'>
+            {% for i in range(5,0,-1) %}
+            <option value='{{i}}'>{{ i }} estrelas</option>
+            {% endfor %}
+        </select>
+        <textarea name='comment' rows='3'
+                  placeholder='Escreve a tua opinião...'></textarea>
+        <button class='btn' type='submit'>Publicar Avaliação</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: book-service
+
+  # PostgreSQL (SQL)
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/biblioteca
+    username: ${DB_USER:biblioteca}
+    password: ${DB_PASS:biblioteca123}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+  # MongoDB (NoSQL)
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_HOST:localhost}:27017/biblioteca
+
+server:
+  port: 8080

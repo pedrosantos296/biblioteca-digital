@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='card'>
+    <h2>Adicionar Novo Livro</h2>
+    <form method='POST' action='/add'>
+        <input name='title' placeholder='Título *' required>
+        <input name='author' placeholder='Autor *' required>
+        <input name='isbn' placeholder='ISBN'>
+        <input name='year' type='number' placeholder='Ano (ex: 1984)'>
+        <input name='genre' placeholder='Género (ex: Romance, Ficção...)'>
+        <button class='btn' type='submit'>Guardar</button>
+        <a href='/'><button type='button'>Cancelar</button></a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Catálogo de Livros</h1>
+<form method='GET' action='/' style='margin-bottom:24px'>
+    <input name='q' value='{{ query }}' placeholder='Pesquisar por título ou autor...'>
+    <button class='btn' type='submit'>Pesquisar</button>
+</form>
+{% for book in books %}
+<div class='card'>
+    <h3><a href='/book/{{ book.id }}'>{{ book.title }}</a></h3>
+    <p><strong>Autor:</strong> {{ book.author }}
+        <strong>Ano:</strong> {{ book.year }}
+        <strong>Género:</strong> {{ book.genre }}</p>
+</div>
+{% else %}
+<p>Nenhum livro encontrado.</p>
+{% endfor %}
+{% endblock %}
