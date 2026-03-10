@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Biblioteca Digital</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0;
+        background: #f5f5f5; color: #333; }
+        nav { background: #058DC7; padding: 12px 24px;
+        display: flex; align-items: center; gap: 20px; }
+        nav a { color: white; text-decoration: none;
+        font-weight: bold; font-size: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .brand { font-size: 20px; color: white; flex: 1; }
+        main { max-width: 960px; margin: 32px auto;
+        padding: 0 16px; }
+        .card { background: white; border-radius: 8px;
+        padding: 16px 20px; margin-bottom: 16px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .btn { background: #058DC7; color: white;
+        border: none; padding: 8px 18px;
+        border-radius: 4px; cursor: pointer; }
+        .btn:hover { background: #0470A0; }
+        input, select, textarea {
+        padding: 8px; border: 1px solid #ccc;
+        border-radius: 4px; width: 100%;
+        box-sizing: border-box; margin-bottom: 12px; }
+        .star { color: #f5a623; }
+    </style>
+</head>
+<body>
+<nav>
+    <span class='brand'>📚 Biblioteca Digital</span>
+    <a href='/'>Catálogo</a>
+    <a href='/add'>Adicionar Livro</a>
+</nav>
+<main>{% block content %}{% endblock %}</main>
+</body>
+</html>
